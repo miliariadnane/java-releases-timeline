@@ -1,0 +1,15 @@
+# Table of contents
+
+* [Java Versions](README.md)
+  * [Java 8 Features (LTS)](readme/java-8.md)
+  * [Java 9 Features](readme/java-9.md)
+  * [Java 10 Features](readme/java-10.md)
+  * [Java 11 Features (LTS)](readme/java-11.md)
+  * [Java 12 Features](readme/java-12.md)
+  * [Java 13 Features](readme/java-13.md)
+  * [Java 14 Features](readme/java-14.md)
+  * [Java 15 Features](readme/java-15.md)
+  * [Java 16 Features](readme/java-16.md)
+  * [Java 17 Features (LTS)](readme/java-17.md)
+  * [Java 18 Features](readme/java-18.md)
+  * [Java 19 Features](readme/java-19.md)

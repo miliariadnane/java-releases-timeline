@@ -1,19 +1,18 @@
-## Java 8 Features (LTS)
+# Java 8 Features (LTS)
 
-- Java 8 is the first version of Java that supports functional programming.
-- It comes with with declarative approach instead of imperative approach which gives more flexibility to the programmer by avoiding verbosity.
+* Java 8 is the first version of Java that supports functional programming.
+* It comes with with declarative approach instead of imperative approach which gives more flexibility to the programmer by avoiding verbosity.
 
-### 1. Functional Interface
+## 1. Functional Interface
 
-- Functional Interface in java 8 is an interface that has only one abstract method. 
+* Functional Interface in java 8 is an interface that has only one abstract method.
+* Link to [Functional Interface documentation](https://docs.oracle.com/javase/8/docs/api/java/util/function/package-summary.html)
 
-- Link to [Functional Interface documentation](https://docs.oracle.com/javase/8/docs/api/java/util/function/package-summary.html)
+### 1.1 Predicate
 
-#### 1.1 Predicate
+* Predicate is a functional interface that takes **one argument** and **returns a boolean** value (true / false).
 
-- Predicate is a functional interface that takes **one argument** and **returns a boolean** value (true / false).
-
-````java
+```java
 Predicate<Player> isPlayerFromMorocco = player -> player.getCountry().equals("Morocco");
 
 List<Player> moroccanPlayers = players.stream()
@@ -21,13 +20,13 @@ List<Player> moroccanPlayers = players.stream()
         .collect(Collectors.toList());
 
 moroccanPlayers.forEach(System.out::println);
-````
+```
 
-#### 1.2 Function<>
+### 1.2 Function<>
 
-- Function is a functional interface that takes **one argument** and produces a result.
+* Function is a functional interface that takes **one argument** and produces a result.
 
-````java
+```java
 // Example 1
 
 static Function<Player, String> playerToName = Player::getName;
@@ -41,41 +40,40 @@ int result = square.apply(5);
 
 Function<Integer, Integer> squareAndThenAddOne = square.andThen(x -> x + 1);
 int finalResult = squareAndThenAddOne.apply(5);
-````
+```
 
-#### 1.3 BiFunction<>
+### 1.3 BiFunction<>
 
-- BiFunction is a functional interface that takes **two arguments** and produces a result.
+* BiFunction is a functional interface that takes **two arguments** and produces a result.
 
-````java
+```java
 BiFunction<Integer, Integer, Integer> multiplyByEightAndThenAddNumber = (x, y) -> (x * 8) + y;
 
 int result = multiplyByEightAndThenAddNumber.apply(5, 10);
-````
+```
 
-#### 1.4 Consumer<>
+### 1.4 Consumer<>
 
-- Consumer is a functional interface that takes **one argument** and **returns nothing**.
+* Consumer is a functional interface that takes **one argument** and **returns nothing**.
 
-````java
+```java
 Consumer<Player, Boolean> playerList = (player, showName) -> {
     System.out.println("Hello Everyone ! " + player.getName());
     showPlayerName ? player.getName() : " ***** Player List For The Game Not Ready Yet ***** ";
 };
 
 playerList.accept(player, true);
-````
+```
 
-#### 1.5 BiConsumer<>
+### 1.5 BiConsumer<>
 
-- BiConsumer is a functional interface that takes **two arguments** and **returns nothing**.
+* BiConsumer is a functional interface that takes **two arguments** and **returns nothing**.
 
+### 1.6 Supplier<>
 
-#### 1.6 Supplier<>
+* Supplier is a functional interface that takes **no argument** and **returns a result**, it's like a getter.
 
-- Supplier is a functional interface that takes **no argument** and **returns a result**, it's like a getter.
-
-````java
+```java
 Supplier<String> getDockerImagesForTheApp = () -> {
     List.of(
         "docker pull mysql:latest",
@@ -88,27 +86,25 @@ Supplier<String> getDockerImagesForTheApp = () -> {
 };
 
 getDockerImagesForTheApp.get();
-````
+```
 
-### 2. Stream API
+## 2. Stream API
 
-- Stream API is a new feature in Java 8 that allows us to **process data** in a **declarative way**.
-- It allows us to perform filter, map, reduce, find, match, sort, and many other operations with the collection of data.
-- We process data in a functional programming style in 3 steps:
-
-    1. It starts with a collection of data :
-        - List
-        - Set
-        - Map
-        - Array
-        - etc.
-    2. It applies a series of operations on the data.
-
-    3. It produces a result.
+* Stream API is a new feature in Java 8 that allows us to **process data** in a **declarative way**.
+* It allows us to perform filter, map, reduce, find, match, sort, and many other operations with the collection of data.
+* We process data in a functional programming style in 3 steps:
+  1. It starts with a collection of data :
+     * List
+     * Set
+     * Map
+     * Array
+     * etc.
+  2. It applies a series of operations on the data.
+  3. It produces a result.
 
 ![stream-api-process geeksforgeeks](https://media.geeksforgeeks.org/wp-content/uploads/20210510163435/transac.png)
 
-````java	
+```java
 // List of premier league clubs (1st division in England)
 List<String> premierLeagueClubs = List.of(
     "Manchester United",
@@ -126,28 +122,26 @@ List<String> premierLeagueClubsStartingWithLetterM = premierLeagueClubs.stream()
     .collect(Collectors.toList());
 
 premierLeagueClubsStartingWithLetterM.forEach(System.out::println);
-````
+```
 
-- There is a bunch of other operations that we can apply on the data:
+* There is a bunch of other operations that we can apply on the data:
+  * **filter()** : filters the data based on a condition.
+  * **map()** : maps the data to another object.
+  * **sorted()** : sorts the data.
+  * **collect()** : collects the output and returns a list.
+  * **reduce()** : reduces the elements to a single value.
+  * **count()** : returns the count of elements in the stream.
+  * **min()** : returns the minimum element of the stream.
+  * **max()** : returns the maximum element of the stream.
+  * **findAny()** : returns any element of the stream.
+  * **findFirst()** : returns the first element of the stream.
+  * **allMatch()** : returns true if all elements of the stream match the given predicate.
+  * **anyMatch()** : returns true if any of the elements of the stream match the given predicate.
+* **Parallel Stream** : Parallel stream is used to process data in parallel. It is faster than sequential stream.
 
-    - **filter()** : filters the data based on a condition.
-    - **map()** : maps the data to another object.
-    - **sorted()** : sorts the data.
-    - **collect()** : collects the output and returns a list.
-    - **reduce()** : reduces the elements to a single value.
-    - **count()** : returns the count of elements in the stream.
-    - **min()** : returns the minimum element of the stream.
-    - **max()** : returns the maximum element of the stream.
-    - **findAny()** : returns any element of the stream.
-    - **findFirst()** : returns the first element of the stream.
-    - **allMatch()** : returns true if all elements of the stream match the given predicate.
-    - **anyMatch()** : returns true if any of the elements of the stream match the given predicate.
+![parallel-stream](../docs/1.png)
 
-- **Parallel Stream** : Parallel stream is used to process data in parallel. It is faster than sequential stream.
-
-![parallel-stream](./docs/1.png)
-
-````java
+```java
 List<String> premierLeagueClubs = List.of(
     "Manchester United",
     "Manchester City",
@@ -163,14 +157,14 @@ List<String> premierLeagueClubsStartingWithLetterM = premierLeagueClubs.parallel
     .collect(Collectors.toList());
 
 premierLeagueClubsStartingWithLetterM.forEach(System.out::println);
-````
+```
 
-### 3. Optional
+## 3. Optional
 
-- Optional is a container object which may or may not contain a non-null value.
-- It aims to **solve** the problem of **NullPointerException** in Java by avoiding the null value and generating exception or message to use.
+* Optional is a container object which may or may not contain a non-null value.
+* It aims to **solve** the problem of **NullPointerException** in Java by avoiding the null value and generating exception or message to use.
 
-````java
+```java
 Optional<String> optional = Optional.ofNullable(null);
     .orElseGet(() -> "Default value"); // Default value
 
@@ -180,13 +174,13 @@ Optional<String> sendEmailIfPresentOrElse = Optional.ofNullable("nano@gmail.com"
     email -> sendEmail(email),
     () -> System.out.println("Email not found")
 ); 
-````
+```
 
-### 4. CallBacks
+## 4. CallBacks
 
-- Callbacks are used to **execute** a function after a task is completed.
+* Callbacks are used to **execute** a function after a task is completed.
 
-````java
+```java
 static void greet(String name, int age, Callback callback) {
     System.out.println("Hello " + name + " !");
 
@@ -196,13 +190,13 @@ static void greet(String name, int age, Callback callback) {
         callback.accept("Welcome to the club");
     }
 }
-````	
+```
 
-### 5. Lambda Expression
+## 5. Lambda Expression
 
-- Lambda expression is a **short block of code** which takes in parameters and returns a value.
+* Lambda expression is a **short block of code** which takes in parameters and returns a value.
 
-````java
+```java
 // Without lambda expression
 Runnable runnable = new Runnable() {
     @Override
@@ -213,13 +207,13 @@ Runnable runnable = new Runnable() {
 
 // With lambda expression
 Runnable runnable = () -> System.out.println("Hello World !");
-````
+```
 
-### 6. Date and Time API
+## 6. Date and Time API
 
-- Java 8 introduced a new date and time API to deal with date and time in Java.
+* Java 8 introduced a new date and time API to deal with date and time in Java.
 
-````java
+```java
 // Get current date and time
 LocalDateTime now = LocalDateTime.now();
 
@@ -235,3 +229,4 @@ ZonedDateTime utc = ZonedDateTime.now(ZoneId.of("UTC"));
 // Get current date and time in Paris
 ZonedDateTime paris = ZonedDateTime.now(ZoneId.of("Europe/Paris"));
 
+```
