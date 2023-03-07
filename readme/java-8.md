@@ -58,10 +58,10 @@ int result = multiplyByEightAndThenAddNumber.apply(5, 10);
 
 ```java
 Consumer<Player> Helloplayer = player -> {
-    System.out.println("Hello Everyone ! " + player.getName());
+    System.out.println("Hello  ! " + player.getName());
 };
 
-playerList.accept(player);
+Helloplayer.accept(player);
 ```
 
 ### 1.5 BiConsumer<>
