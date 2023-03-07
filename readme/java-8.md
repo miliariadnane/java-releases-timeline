@@ -57,7 +57,7 @@ int result = multiplyByEightAndThenAddNumber.apply(5, 10);
 * Consumer is a functional interface that takes **one argument** and **returns nothing**.
 
 ```java
-Consumer<Player> playerList = player -> {
+Consumer<Player> Helloplayer = player -> {
     System.out.println("Hello Everyone ! " + player.getName());
 };
 
