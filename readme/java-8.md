@@ -57,17 +57,25 @@ int result = multiplyByEightAndThenAddNumber.apply(5, 10);
 * Consumer is a functional interface that takes **one argument** and **returns nothing**.
 
 ```java
-Consumer<Player, Boolean> playerList = (player, showName) -> {
+Consumer<Player> playerList = player -> {
+    System.out.println("Hello Everyone ! " + player.getName());
+};
+
+playerList.accept(player);
+```
+
+### 1.5 BiConsumer<>
+
+* BiConsumer is a functional interface that takes **two arguments** and **returns nothing**.
+
+```java
+BiConsumer<Player, Boolean> playerList = (player, showName) -> {
     System.out.println("Hello Everyone ! " + player.getName());
     showPlayerName ? player.getName() : " ***** Player List For The Game Not Ready Yet ***** ";
 };
 
 playerList.accept(player, true);
 ```
-
-### 1.5 BiConsumer<>
-
-* BiConsumer is a functional interface that takes **two arguments** and **returns nothing**.
 
 ### 1.6 Supplier<>
 
