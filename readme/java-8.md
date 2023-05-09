@@ -242,13 +242,14 @@ ZonedDateTime paris = ZonedDateTime.now(ZoneId.of("Europe/Paris"));
 
 ```
 
-## static and default methods in interfaces
+## 7. static and default methods in interfaces
 
 * Default methods are methods that can have a body.
 
 ```java
 
 // Example Syntax of default methods
+
 public interface Vehicule {
 
     void stopvehicule();
@@ -264,6 +265,7 @@ public class Car implements Vehicule{
     public void stopVehicle() {
         System.out.println("stop the vehicle");
     }
+
     public static void main(String args[]){
         var car = new Car();
         car.stopVehicle();
@@ -281,3 +283,35 @@ public class Car implements Vehicule{
 * The static methods in interfaces are similar to default methods but the only difference is that you can’t override them.
 
 
+```java
+
+// Example Syntax of static methods
+
+public interface Vehicle {
+
+    static void stopVehicle(){
+        System.out.println("I am stoping vehicle");
+    }
+
+}
+
+
+public class Car implements Vehicle {
+
+    
+    
+     public static void main(String args[]){
+        Car car = new Car();
+        
+        Vehicle.stopVehicle(); 
+    }
+        
+    
+}
+
+
+
+
+```
+
+* As shown above static methods in interfaces cannot be overridden or implemented by classes that implement the interface. Instead, they can only be called using the interface name, followed by the method name
