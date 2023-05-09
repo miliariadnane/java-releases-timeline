@@ -237,6 +237,11 @@ ZonedDateTime utc = ZonedDateTime.now(ZoneId.of("UTC"));
 // Get current date and time in Paris
 ZonedDateTime paris = ZonedDateTime.now(ZoneId.of("Europe/Paris"));
 
+
+
+
+```
+
 ## static and default methods in interfaces
 
 * Default methods are methods that can have a body.
@@ -276,6 +281,3 @@ public class Car implements Vehicule{
 * The static methods in interfaces are similar to default methods but the only difference is that you can’t override them.
 
 
-
-
-```
