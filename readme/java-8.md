@@ -237,4 +237,45 @@ ZonedDateTime utc = ZonedDateTime.now(ZoneId.of("UTC"));
 // Get current date and time in Paris
 ZonedDateTime paris = ZonedDateTime.now(ZoneId.of("Europe/Paris"));
 
+## static and default methods in interfaces
+
+* Default methods are methods that can have a body.
+
+```java
+
+// Example Syntax of default methods
+public interface Vehicule {
+
+    void stopvehicule();
+
+    default void startvehicule(){
+        System.out.println("Vehicle is starting");
+    }
+}
+
+public class Car implements Vehicule{
+
+    @Override
+    public void stopVehicle() {
+        System.out.println("stop the vehicle");
+    }
+    public static void main(String args[]){
+        var car = new Car();
+        car.stopVehicle();
+        car.startVehicle();
+    }
+}
+
+
+
+```
+
+* As shown above, our class needs to implement only the abstract method is it mandatory to override the default methods
+
+
+* The static methods in interfaces are similar to default methods but the only difference is that you can’t override them.
+
+
+
+
 ```
