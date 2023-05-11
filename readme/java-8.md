@@ -248,32 +248,26 @@ ZonedDateTime paris = ZonedDateTime.now(ZoneId.of("Europe/Paris"));
 
 ```java
 
-// Example Syntax of default methods
+// Example of default methods
 
 public interface Vehicule {
-
     void stopvehicule();
-
     default void startvehicule(){
         System.out.println("Vehicle is starting");
     }
 }
 
 public class Car implements Vehicule{
-
     @Override
     public void stopVehicle() {
         System.out.println("stop the vehicle");
     }
-
     public static void main(String args[]){
         var car = new Car();
         car.stopVehicle();
         car.startVehicle();
     }
 }
-
-
 
 ```
 
@@ -285,32 +279,19 @@ public class Car implements Vehicule{
 
 ```java
 
-// Example Syntax of static methods
-
+// Example of static methods
 public interface Vehicle {
-
     static void stopVehicle(){
         System.out.println("I am stoping vehicle");
     }
-
 }
 
-
-public class Car implements Vehicle {
-
-    
-    
+public class Car implements Vehicle {    
      public static void main(String args[]){
         Car car = new Car();
-        
         Vehicle.stopVehicle(); 
     }
-        
-    
 }
-
-
-
 
 ```
 
