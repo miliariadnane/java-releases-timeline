@@ -247,9 +247,7 @@ ZonedDateTime paris = ZonedDateTime.now(ZoneId.of("Europe/Paris"));
 * Default methods are methods that can have a body.
 
 ```java
-
 // Example of default methods
-
 public interface Vehicule {
     void stopvehicule();
     default void startvehicule(){
@@ -278,7 +276,6 @@ public class Car implements Vehicule{
 
 
 ```java
-
 // Example of static methods
 public interface Vehicle {
     static void stopVehicle(){
