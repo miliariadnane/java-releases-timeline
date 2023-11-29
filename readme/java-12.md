@@ -1,5 +1,7 @@
 ## Java 12 Features
 
+Released on March 19, 2019.
+
 ### 1. ``Collectors.teeing()`` in Stream API
 
 - This method was added to stream API in Java 12, as a way to combine multiple collectors into a single collector. This method allows you to apply multiple collectors to the elements of a stream, then combine the results of those collectors into a single result.
@@ -52,7 +54,7 @@ public class FilesMismatch {
 }
 ````
 
-### 3. Compact Number Formatting
+### 3. Compact Number Formatting (Preview) 
 
 - Java 12 comes with a new method, ``NumberFormat.formatCompactLong()``. This feature allows allows developers to format numbers using the compact number format style, which is a shorter, more localized form of formatting numbers.
 
@@ -68,7 +70,7 @@ public class CompactNumberFormatExample {
 }
 ````
 
-### 4. Java Strings New Methods 
+### 4. Java Strings New Methods
 
 #### 4.1. ``indent()``
 
@@ -102,11 +104,15 @@ public class TransformExample {
 
 - This is a new method that was added to the ``java.util.Optional``. It is used to provide a way to describe the value of an Optional instance in a way that can be serialized.
 
-#### 4.4. ``resolveConstantDesc()``
+#### 4.4. ``resolveConstantDesc()`` 
 
 ### 5. Preview Features
-#### 5.1. Switch Expressions (Preview) : JEP 325
 
+#### 5.1. Switch Expressions (Preview) 
+
+[JEP 325](https://openjdk.java.net/jeps/325)
+
+- It is a new way to replace if / else statements.
 - Java 12 has enhanced the switch statement for pattern matching. The new syntax is ``case <pattern> ->``. 
 
 ````java
@@ -142,6 +148,27 @@ typeOfDay = switch (dayOfWeek) {
 switch (dayOfWeek) {
     case MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY -> System.out.println("Working Day");
     case SATURDAY, SUNDAY -> System.out.println("Day Off");
+}
+````
+- You can also use switch expressions with enums.
+
+````java
+enm DaysOfWeek {
+    MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY
+}
+
+public static void main(String[] args) {
+    DaysOfWeek day = DaysOfWeek.MONDAY; 
+    String result = switch (day) {
+        case MONDAY -> "Monday";
+        case TUESDAY -> "Tuesday"; 
+        case WEDNESDAY -> "Wednesday";
+        case THURSDAY -> "Thursday";
+        case FRIDAY -> "Friday";
+        case SATURDAY -> "Saturday";
+        case SUNDAY -> "Sunday";
+    };
+    System.out.println(result); 
 }
 ````
 

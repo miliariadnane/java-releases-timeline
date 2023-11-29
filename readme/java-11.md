@@ -1,5 +1,7 @@
 ## Java 11 Features (LTS)
 
+Released on September 25, 2018.
+
 ### 1. String API Improvements
 
 - String API has been improved in Java 11, we can now use the following methods:

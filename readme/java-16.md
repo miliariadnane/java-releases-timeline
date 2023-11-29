@@ -1,6 +1,8 @@
 ## Java 16 Features
 
-### 1. Vector API
+Release date: March 16, 2021
+
+### 1. Vector API [JEP 338](https://openjdk.org/jeps/338)
 
 - The Vector API is a new feature added to Java 16 as a standard feature. The idea behind this API is to provide a set of interfaces and classes that allow us to perform operations on vectors of data. 
 
@@ -42,7 +44,7 @@ List<String> premierLeagueClubsStartingWithLetterM = premierLeagueClubs.stream()
     .toList();
 ````
 
-### 3. Records
+### 3. Records [JEP 395](https://openjdk.org/jeps/395)
 
 - Records are a new feature added to Java 16 as a standard feature.
 - It is a new way to create immutable classes.
@@ -53,10 +55,10 @@ List<String> premierLeagueClubsStartingWithLetterM = premierLeagueClubs.stream()
 ````java	
 record Player(String name, int age, String club, String nationality, string position, String[] titles) {}
 
-// create a new player
+# create a new player
 Player messi = new Player("Lionel Messi", 34, "PSG", "Argentina", "Forward", "🏆🏆🏆");
 
-// get player name
+# get player name
 String name = messi.name();
 String club = messi.club();
 ````	

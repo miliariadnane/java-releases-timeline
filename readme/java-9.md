@@ -1,4 +1,6 @@
 ## Java 9 Features
+
+Released on September 21, 2017.
   
 ### 1. JShell 
 

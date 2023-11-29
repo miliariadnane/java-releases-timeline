@@ -1,82 +1,59 @@
 ## Java 17 Features (LTS)
 
-### 1. Switch Expressions
+Release date: September 14, 2021
 
-- Switch expressions are a new feature added to Java 14 as a standard feature.
+### 1. Sealed Classes [JEP 409](https://openjdk.org/jeps/409)
 
-- It is a new way to replace if / else statements.
+[Sealed Classes Details](java-15.md#41-sealed-classes-preview)
 
-#### 1.1. Switch expressions : simple usage
+* Sealed Classes were proposed by [JEP 360](https://openjdk.org/jeps/360) and delivered in JDK 15 as a preview feature.
+* They were proposed again, with refinements, by [JEP 397](https://openjdk.org/jeps/397) and delivered in JDK 16 as a preview feature.
+* Now in JDK 17, Sealed Classes are being finalized and delivered as a standard feature.
+
+* Sealed classes and interfaces restrict which other classes or interfaces may extend or implement them. In other words, a sealed class or interface can specify which types are permitted to extend or implement it. This feature was introduced as a final feature in Java 17.
+
+Here's a basic example:
 
 ````java
-switch (day) {
-    case "1" -> System.out.println("Monday");
-    case "2" -> System.out.println("Tuesday");
-    case "3" -> System.out.println("Wednesday");
-    case "4" -> System.out.println("Thursday");
-    case "5" -> System.out.println("Friday");
-    case "6" -> System.out.println("Saturday");
-    case "7" -> System.out.println("Sunday");
-    default -> System.out.println("Invalid day");
+public sealed class Shape permits Circle, Rectangle {
+    // class body
+}
+
+public final class Circle extends Shape {
+    // class body
+}
+
+public non-sealed class Rectangle extends Shape {
+    // class body
 }
 ````
 
-#### 1.2. String switch expression
+> In this example, Shape is a sealed class that only permits Circle and Rectangle to extend it. Circle is a final class, meaning it can't be extended further. Rectangle is a non-sealed class, meaning it can be extended by other classes.
+
+### 2. New macOS Rendering Pipeline [JEP 382](https://openjdk.org/jeps/382)
+
+### 3. Enhanced Pseudo-Random Number Generators [JEP 356](https://openjdk.org/jeps/356)
+
+This feature introduces new interfaces and implementations for pseudorandom number generators (PRNGs) in the JDK. Here's an example of how to use the new RandomGenerator interface:
 
 ````java
-switch (day) {
-    case "1" -> "Monday";
-    case "2" -> "Tuesday";
-    case "3" -> "Wednesday";
-    case "4" -> "Thursday";
-    case "5" -> "Friday";
-    case "6" -> "Saturday";
-    case "7" -> "Sunday";
-    default -> "Invalid day";
-}
-````
+import java.util.random.RandomGenerator;
 
-#### 1.3. Switch expressions : yield
-
-````java
-String result = switch (day) {
-    case "1" -> "Monday";
-    case "2" -> "Tuesday";
-    case "3" -> "Wednesday";
-    case "4" -> "Thursday";
-    case "5" -> "Friday";
-    case "6" -> "Saturday";
-    case "7" -> "Sunday";
-    default -> {
-        System.out.println("Invalid day");
-        yield "Invalid day"; // yield is used to return a value 
+public class RandomExample {
+    public static void main(String[] args) {
+        RandomGenerator randomGenerator = RandomGenerator.getDefault();
+        int randomInt = randomGenerator.nextInt();
+        System.out.println(randomInt);
     }
-};
-````
-
-#### 1.4. Switch expressions : Enum
-
-````java
-enm DaysOfWeek {
-    MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY
-}
-
-public static void main(String[] args) {
-    DaysOfWeek day = DaysOfWeek.MONDAY; 
-    String result = switch (day) {
-        case MONDAY -> "Monday";
-        case TUESDAY -> "Tuesday"; 
-        case WEDNESDAY -> "Wednesday";
-        case THURSDAY -> "Thursday";
-        case FRIDAY -> "Friday";
-        case SATURDAY -> "Saturday";
-        case SUNDAY -> "Sunday";
-    };
-    System.out.println(result); 
 }
 ````
 
-#### 1.5. Switch expressions (JEP 406 -> Preview pattern matching for switch)
+### 4. Preview Features
+
+#### Switch Expressions (Preview) [JEP 406](https://openjdk.org/jeps/406)
+
+- [Switch Expressions (Preview)](java-12.md#5-preview-features) Introduced in Java 12 as a preview feature.
+- Switch expressions are a new feature added to Java 14 as a standard feature.
 
 - This is a new pattern matching feature for switch expressions, aimed to reduce the amount of boilerplate code.
 
@@ -104,22 +81,8 @@ public String checkShape(Shape shape) {
 }
 ````
 
-### 2. Restore Always-Strict Floating-Point Semantics
+### 5. Deprecated & removed features
 
-[JEP 306](https://openjdk.org/jeps/306)
+#### 5.1. Deprecate the Applet API for Removal [JEP 398](https://openjdk.org/jeps/398)
 
-### 3. Enhanced Pseudo-Random Number Generators 
-
-[JEP 356](https://openjdk.org/jeps/356)
-
-### 4. New macOS Rendering Pipeline 
-
-[JEP 382](https://openjdk.org/jeps/382)
-
-### 5. Deprecate the Applet API for Removal
-
-[JEP 398](https://openjdk.org/jeps/398)
-
-### 6. Strongly Encapsulate JDK Internals
-
-[JEP 403](https://openjdk.org/jeps/403)
+#### 5.2. Strongly Encapsulate JDK Internals [JEP 403](https://openjdk.org/jeps/403)

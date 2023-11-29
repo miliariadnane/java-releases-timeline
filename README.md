@@ -23,3 +23,7 @@ This Book provides a comprehensive overview of the features and changes introduc
 ## [Java 18](readme/java-18.md)
 
 ## [Java 19](readme/java-19.md)
+
+## [Java 20](readme/java-20.md)
+
+## [Java 21 (LTS)](readme/java-21.md)

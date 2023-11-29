@@ -1,5 +1,7 @@
 # Java 8 Features (LTS)
 
+Released on March 18, 2014.
+
 * Java 8 is the first version of Java that supports functional programming.
 * It comes with with declarative approach instead of imperative approach which gives more flexibility to the programmer by avoiding verbosity.
 

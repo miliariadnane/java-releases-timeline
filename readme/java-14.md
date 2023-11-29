@@ -1,19 +1,13 @@
 ## Java 14 Features
 
+Released on March 17, 2020.
+
 ### 1. Helpful NullPointerExceptions
 
-### 2. Records
+### 2. Records (Preview) [JEP 359](https://openjdk.org/jeps/359)
 
 [Records](java-16.md#1-records)
 
-### 3. Pattern Matching for instanceof
+### 3. Pattern Matching for instanceof (Preview) 
 
-### 4. Switch Expressions
-
-[Switch Expressions](java-17.md#1-switch-expressions)
-
-### 5. NUMA-Aware Memory Allocation for G1
-
-### 6. Non-Volatile Mapped Byte Buffers
-
-### 7. Remove the Pack200 Tools and API
+### 4. NUMA-Aware Memory Allocation for G1 [JEP 345](https://openjdk.java.net/jeps/345)
