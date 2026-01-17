@@ -15,6 +15,7 @@
   * [Java 19 Features](readme/java-19.md)
   * [Java 20 Features](readme/java-20.md)
   * [Java 21 Features (LTS)](readme/java-21.md)
+  * [Java 25 Features (LTS)](readme/java-25.md)
 * [OpenJDK projects](openjdk-projects/README.md)
   * [Project Loom](openjdk-projects/project-loom.md)
   * [Project Valhalla](openjdk-projects/project-valhalla.md)
